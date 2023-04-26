@@ -1,12 +1,14 @@
 import json
 import csv
 
+# Add the attributes and its count to dict
 def add_attributeDict(label,attribute,value,attributeDict):
     if (label,attribute,value) in attributeDict:
         attributeDict[(label,attribute,value)] += 1
     else:
         attributeDict[(label,attribute,value)] = 1
-  
+
+# Extract required data from json and returns dict of its count  
 def extract():
     with open('build.json') as f:
         data = json.load(f)
@@ -22,8 +24,6 @@ def extract():
         else:
             labelDict[item['label']] = 1
 
-    #print((labelDict))
-
     for item in annotations:
         for attribute,value in item['attributes'].items():
             if type(value['value']) is list:
@@ -34,10 +34,7 @@ def extract():
 
     return (labelDict,attributeDict)
 
-
-
-#print(attributeDict)
-
+# Builds both the csv file with attributes and its count
 def build_csv(labelDict,attributeDict):
     with open('label.csv', 'w', newline='') as csvfile:
         writer = csv.writer(csvfile)
