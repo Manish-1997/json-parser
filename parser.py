@@ -11,7 +11,7 @@ def add_attributeDict(label,attribute,value,attributeDict):
 # Extract required data from json and returns dict of its count  
 def extract():
     try:
-        with open('builds.json') as f:
+        with open('build.json') as f:
             data = json.load(f)
     except FileNotFoundError:
         print("Error: JSON file not found")
