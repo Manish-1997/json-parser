@@ -10,8 +10,12 @@ def add_attributeDict(label,attribute,value,attributeDict):
 
 # Extract required data from json and returns dict of its count  
 def extract():
-    with open('build.json') as f:
-        data = json.load(f)
+    try:
+        with open('builds.json') as f:
+            data = json.load(f)
+    except FileNotFoundError:
+        print("Error: JSON file not found")
+        return ({},{})
 
     annotations = data['maker_response']['sensor_fusion_v2']['data']['annotations']
 
