@@ -1,0 +1,11 @@
+LABEL,COUNT
+car,2091
+pedestrian,238
+driver,17
+suv,515
+van,100
+flatbed_trailer_truck,150
+truck,402
+pickup,355
+face,6
+trailer,109
